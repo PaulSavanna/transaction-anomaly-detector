@@ -2,7 +2,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 data/raw/
-*.csv
+data/raw/*.csv
 .env
 venv/
 .venv/
