@@ -12,7 +12,7 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     """Добавление производных признаков"""
     df = df.copy()
     df['Amount_log'] = np.log1p(df['Amount'])
-    df['Hour'] = (df['Time'] / 3600).astype(int)
+    df['Hour'] = pd.to_numeric(df['Time'] / 3600, errors='coerce')
     return df
 
 

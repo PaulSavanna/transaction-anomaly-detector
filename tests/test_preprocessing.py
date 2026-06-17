@@ -44,3 +44,21 @@ def test_scale_features():
     assert X_train_scaled.shape == X_train.shape
     assert X_test_scaled.shape == X_test.shape
     assert np.abs(X_train_scaled.mean(axis=0)).max() < 0.1
+
+
+def test_add_features_with_nan():
+    df = pd.DataFrame({
+        'Time': [0, np.nan, 7200],
+        'Amount': [100.0, 50.0, np.nan],
+        'V1': [-1.0, 0.5, 1.0],
+    })
+    result = add_features(df)
+    assert result['Amount_log'].isna().sum() == 1
+
+
+def test_scale_features_single_sample():
+    X_train = np.array([[1, 2], [3, 4], [5, 6]])
+    X_test = np.array([[7, 8]])
+
+    X_train_scaled, X_test_scaled, scaler = scale_features(X_train, X_test)
+    assert X_test_scaled.shape == (1, 2)
