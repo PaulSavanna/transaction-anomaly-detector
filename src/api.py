@@ -6,7 +6,6 @@ from pathlib import Path
 
 app = FastAPI(title="Transaction Anomaly Detector")
 
-# глобальные переменные для модели
 model = None
 scaler = None
 threshold = None
@@ -91,7 +90,7 @@ def load_model():
             model = pickle.load(f)
         with open(scaler_path, 'rb') as f:
             scaler = pickle.load(f)
-        threshold = 0.5  # TODO: save actual threshold
+        threshold = 0.5
     else:
         print("WARNING: model files not found, /predict will fail")
 
@@ -116,7 +115,7 @@ def predict(transaction: Transaction):
             transaction.V21, transaction.V22, transaction.V23, transaction.V24,
             transaction.V25, transaction.V26, transaction.V27, transaction.V28,
             transaction.Amount, np.log1p(transaction.Amount),
-            0  # Hour placeholder
+            0
         ]])
 
         features_scaled = scaler.transform(features)

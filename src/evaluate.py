@@ -11,7 +11,6 @@ def find_optimal_threshold(y_true, scores):
     """Поиск оптимального порога по F1"""
     precision, recall, thresholds = precision_recall_curve(y_true, scores)
 
-    # избегаем деления на ноль
     f1_scores = 2 * (precision * recall) / (precision + recall + 1e-10)
 
     best_idx = np.argmax(f1_scores)
