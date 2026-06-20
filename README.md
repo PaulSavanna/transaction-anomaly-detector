@@ -69,7 +69,9 @@ Response:
 
 ```
 ├── data/
-│   └── README.md          # инструкции по скачиванию данных
+│   ├── README.md              # инструкции по скачиванию данных
+│   ├── sample.csv             # сэмпл для демонстрации
+│   └── generate_sample.py     # скрипт генерации сэмпла
 ├── notebooks/
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_feature_engineering.ipynb
@@ -82,9 +84,11 @@ Response:
 │   ├── train.py
 │   └── api.py
 ├── tests/
+│   ├── __init__.py
 │   ├── test_preprocessing.py
 │   ├── test_models.py
 │   └── test_evaluate.py
+├── models/                    # сгенерированные модели (не в git)
 ├── requirements.txt
 └── .github/workflows/ci.yml
 ```
