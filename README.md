@@ -1,5 +1,7 @@
 # Transaction Anomaly Detector
 
+[![CI](https://github.com/PaulSavanna/transaction-anomaly-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/PaulSavanna/transaction-anomaly-detector/actions/workflows/ci.yml)
+
 Система детекции аномалий в финансовых транзакциях. Использует Isolation Forest и Autoencoder для поиска мошеннических транзакций в датасете кредитных карт.
 
 ## Результаты
